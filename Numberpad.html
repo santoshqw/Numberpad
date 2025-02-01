@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     *{
+      margin:0;
+      box-sizing: border-box;
+     }
+    body {
+      height:100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(12, 7, 16);
+    }
+     .container{
+      padding:8px;
+      height:250px;
+      width:200px;
+      border-radius: 8px;
+      background-color: rgb(223, 223, 223);
+      transform: scale(1.1);
+     }
+     .numWrapper{
+      margin-top:30px;
+       display: grid;
+       grid-template-columns: repeat(3,1fr);
+       gap:6px;
+     }
+      button{
+       padding:10px;
+       background-color: rgb(43, 43, 94);
+       color: white;
+       border: none;
+       border-radius: 8px; 
+      }
+      button:hover {
+        background-color: rgb(64, 69, 71);
+        box-shadow: 1px 4px 2px rgb(171, 161, 161);
+
+      }
+      .inputField{
+        margin-top:18px;;
+         width:100%;
+         box-shadow: 1px 2px 1px rgb(150, 147, 147);
+         border-radius:8px;
+
+         input{
+          width:100%;
+          padding:8px 4px;
+          border-radius:8px;
+          border: none;
+          outline: none;
+          text-align: center;
+         }
+
+      }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inputField">
+          <input type="text" placeholder="enter phone number" id="inputEl" readonly>
+        </div>
+         <div class="numWrapper">
+            <button class="keypad">7</button>  
+            <button class="keypad">8</button>
+            <button class="keypad">9</button>
+            <button class="keypad">4</button>
+            <button class="keypad">5</button>
+            <button class="keypad">6</button>
+            <button class="keypad">1</button>
+            <button class="keypad">2</button>
+            <button class="keypad">3</button>
+            <button class="keypad">0</button>
+            <button class="remove"> X</button>
+            <button class="clear">clear</button>
+         </div>
+    </div>
+</body>
+<script>
+    let inputEl =document.getElementById('inputEl');
+    let numWrapper =document.querySelector('.numWrapper');
+    numWrapper.addEventListener('click',(e)=>{
+      if(e.target.classList=="keypad") {
+         inputEl.value+=e.target.textContent
+      }
+      if(e.target.classList=="clear") {
+        inputEl.value="";
+      }
+      if(e.target.classList=="remove"){
+        inputEl.value= inputEl.value.slice(0,-1);
+      }
+    })
+</script>
+</html>
